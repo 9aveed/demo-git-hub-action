@@ -1,8 +1,18 @@
-name: hello-world
-on: push
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+
 jobs:
-  my-job:
+  build:
     runs-on: ubuntu-latest
+
     steps:
-      - name: my-step
-        run: echo "Hello World!"
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Run Your Script
+        run: |
+          echo "Hello, GitHub Actions!"
